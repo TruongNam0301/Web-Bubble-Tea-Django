@@ -1,0 +1,220 @@
+{% extends "common.html" %}
+    {% load static %}
+    {% block content %}
+        <section id="cta-1">
+            <div class="container">
+                <div class="row">
+                    <div class="cta-info text-center">
+                        <h3><span class="dec-tec"></span>The purest from the scrumptious tea.<span class="dec-tec"></span></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!---->
+
+        <section>
+            <div class = "container">
+                <h1>the new products</h1>
+                <div class = "row">
+                    {% for product in queryset1 %}
+                        <div class ="col-md-3" >
+                            <div class = "sale-off">
+                                <div class = "sale-off-image">
+                                    <img src="static/{{product.image}}" alt="lemon" width ="400" height = "400">
+                                </div>
+                                <div class = "sale-off-info">
+                                    <div class = "name-product">{{product.name}}</div>
+                                    <div class = "price">
+                                        <div class = "price-old">{{product.price}}</div>
+                                        <div class = "price-new">{{product.newPrice}}</div>
+                                        <div class ="sale-num">
+                                            <span >-{{product.TypeSale.numSale}}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class = "sale-off-action">
+                                    <a class="icon-action" href = "#">
+                                        <i class="fas fa-shopping-cart fa-md" ></i>
+                                    </a>
+                                    <a class="icon-action" href = "#">
+                                        <i class="fas fa-eye fa-md" ></i>
+                                    </a>
+                                    <a class="icon-action" href = "#">
+                                        <i class="fas fa-heart fa-md" ></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+
+
+        <section>
+            <div class = "container">
+                <h1>sale off of day</h1>
+                {% for product in queryset2 %}
+                        <div class ="col-md-3" >
+                            <div class = "sale-off">
+                                <div class = "sale-off-image">
+                                    <img src="static/{{product.image}}" alt="lemon" width ="400" height = "400">
+                                </div>
+                                <div class = "sale-off-info">
+                                    <div class = "name-product">{{product.name}}</div>
+                                    <div class = "price">
+                                        <div>{{product.price}}</div>
+                                    </div>
+                                </div>
+                                <div class = "sale-off-action">
+                                    <a class="icon-action" href = "#">
+                                        <i class="fas fa-shopping-cart fa-md" ></i>
+                                    </a>
+                                    <a class="icon-action" href = "#">
+                                        <i class="fas fa-eye fa-md" ></i>
+                                    </a>
+                                    <a class="icon-action" href = "#">
+                                        <i class="fas fa-heart fa-md" ></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+        </section>
+
+        <!-- Features-->
+       
+        
+
+        <!-- Subscribe -->
+        <section class="section-padding parallax bg-image-2 section wow fadeIn delay-08s" id="cta-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="cta-txt">
+                            <h3>Subscribe For Updates</h3>
+                            <p>Join our 1000+ subscribers and get access to the latest tools, freebies, product announcements and much more!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="#" class="btn btn-submit">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!---->
+
+
+
+        <!-- Portfolio Section-->
+        <section class="section-padding wow fadeInUp delay-02s" id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="produce"> 
+                        <h1>about us</h1>
+                       <div class= "image-produce col-md-6">
+                            <img src="{% static 'img/trasua-bg2.jpg' %}" alt="lemon" width ="90%" height = "400px">
+                       </div>
+                       <div class = "text-produce col-md-4">
+                            <h4>
+                                A famous bubble tea brand in Taiwan, the country that gave birth to pearl milk tea back in 1980s, Chatime im/mediately attracted lots of fans when it was introduced to Vietnam. With over 70 choices, anyone can find a mixture they like.
+                                Chatime’s bubble tea flavours range from strongly aromatic bubble tea to refreshing fruit, from “oriental pop tea” to modern smoothies, or as exotic as QQ Jelly (a combination of traditional ‘pearls’ and coconut jelly). The most popular topping is, of course, its home-made pearl. Chatime’s bubble tea is generally sweet but you can ask the staff to customize the sweetness to your taste.
+                                Unfortunately Chatime is a bit expensive for student market it is trying to attract.
+                            </h4>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!---->
+        <section>
+            <div class = "container">
+                <div class = "row">
+                    <div class ="info-produce col-md-4">
+                        <img src="{% static 'img/giaohang.png' %}" width ="100px" height = "80px">
+                        <div>
+                            <h4> Giao hang mien phi</h4>
+                            <p> cac don hang hon 200</p>
+                        </div>
+                        
+                    </div>
+                    <div class ="info-produce col-md-4">
+                        <img src="{% static 'img/time.jpg' %}" width ="100px" height = "90px">
+                        <div>
+                            <h4> Phuc vu 24/7</h4>
+                            <p> 8h00am - 22h30pm ta ca cac ngay trong tuan</p>
+                        </div>
+                    </div>
+                    <div class ="info-produce col-md-4">
+                        <img src="{% static 'img/trasuaicon.png' %}" width ="100px" height = "80px">
+                        <div>
+                            <h4> do uong da dang</h4>
+                            <p> ding tea, matcha, juice,...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!---->
+        <section class="section-padding wow fadeInUp delay-05s" id="contact">
+            <div class="container">
+                <div class="row white">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="section-title">
+                            <h2 class="head-title black">Contact Us</h2>
+                            <hr class="botm-line">
+                            <p class="sec-para black">You can contact anytime and anywhere</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="col-md-4 col-sm-6" style="padding-left:0px;">
+                            <h3 class="cont-title">Email Us</h3>
+                            <div id="sendmessage">Your message has been sent. Thank you!</div>
+                            <div id="errormessage"></div>
+                            <div class="contact-info">
+                                <form action="" method="post" role="form" class="contactForm">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <div class="validation"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                        <div class="validation"></div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                        <div class="validation"></div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                        <div class="validation"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-send btn-block">Submit</button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <h3 class="cont-title">Visit Us</h3>
+                            <div class="location-info">
+                                <p class="white"><span aria-hidden="true" class="fa fa-map-marker"></span>Dhaka, Bangladesh</p>
+                                <p class="white"><span aria-hidden="true" class="fa fa-phone"></span>Phone: +88 01840144627</p>
+                                <p class="white"><span aria-hidden="true" class="fa fa-envelope"></span>Email: <a href="" class="link-dec">jayed.swe@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-icon-container hidden-md hidden-sm hidden-xs">
+                                <span aria-hidden="true" class="fa fa-envelope-o"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+    
