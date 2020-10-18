@@ -1,5 +1,13 @@
 {% extends "common.html" %}
     {% load static %}
+    {% block css %} 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+    {% endblock %}
+    {% block title %}
+        <h2 class="top-title">Web Design & Development</h2>
+        <h3 class="title">Jibon</h3>
+        <h4 class="sub-title">We Create amazing designs</h4>
+    {% endblock %}
     {% block content %}
         <section id="cta-1">
             <div class="container">
@@ -14,35 +22,29 @@
 
         <section>
             <div class = "container">
-                <h1>the new products</h1>
-                <div class = "row">
+                <h1>sale off of day</h1>
+                <div class = "row wow fadeInUp delay-05s">
                     {% for product in queryset1 %}
                         <div class ="col-md-3" >
                             <div class = "sale-off">
                                 <div class = "sale-off-image">
-                                    <img src="static/{{product.image}}" alt="lemon" width ="400" height = "400">
+                                    <img src="static/{{product.image}}" >
+                                </div>
+                                <div class= 'sale-tags'>
+                                    <span>-20%</span>
                                 </div>
                                 <div class = "sale-off-info">
                                     <div class = "name-product">{{product.name}}</div>
                                     <div class = "price">
-                                        <div class = "price-old">{{product.price}}</div>
-                                        <div class = "price-new">{{product.newPrice}}</div>
-                                        <div class ="sale-num">
-                                            <span >-{{product.TypeSale.numSale}}%</span>
-                                        </div>
+                                        <div class = "price-old">{{product.price}}đ</div>
+                                        <div class = "price-new">{{product.newPrice}}đ</div>
+                                    </div>
+                                    <div class = "action">
+                                        <button type="button" class="btn-buy">ĐẶT NGAY</button>
+                                        <button type="button" class="btn-show">XEM CHI TIẾT</button>
                                     </div>
                                 </div>
-                                <div class = "sale-off-action">
-                                    <a class="icon-action" href = "#">
-                                        <i class="fas fa-shopping-cart fa-md" ></i>
-                                    </a>
-                                    <a class="icon-action" href = "#">
-                                        <i class="fas fa-eye fa-md" ></i>
-                                    </a>
-                                    <a class="icon-action" href = "#">
-                                        <i class="fas fa-heart fa-md" ></i>
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
                     {% endfor %}
@@ -54,30 +56,27 @@
 
         <section>
             <div class = "container">
-                <h1>sale off of day</h1>
+                <h1>the new products</h1>
                 {% for product in queryset2 %}
                         <div class ="col-md-3" >
                             <div class = "sale-off">
                                 <div class = "sale-off-image">
-                                    <img src="static/{{product.image}}" alt="lemon" width ="400" height = "400">
+                                    <img src="static/{{product.image}}" alt="lemon">
+                                </div>
+                                <div class= 'sale-tags'>
+                                    <span>New</span>
                                 </div>
                                 <div class = "sale-off-info">
                                     <div class = "name-product">{{product.name}}</div>
                                     <div class = "price">
-                                        <div>{{product.price}}</div>
+                                        <div>{{product.price}}đ</div>
+                                    </div>
+                                    <div class = "action">
+                                        <button type="button" class="btn-buy">ĐẶT NGAY</button>
+                                        <button type="button" class="btn-show">XEM CHI TIẾT</button>
                                     </div>
                                 </div>
-                                <div class = "sale-off-action">
-                                    <a class="icon-action" href = "#">
-                                        <i class="fas fa-shopping-cart fa-md" ></i>
-                                    </a>
-                                    <a class="icon-action" href = "#">
-                                        <i class="fas fa-eye fa-md" ></i>
-                                    </a>
-                                    <a class="icon-action" href = "#">
-                                        <i class="fas fa-heart fa-md" ></i>
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
                     {% endfor %}
@@ -109,15 +108,15 @@
 
 
         <!-- Portfolio Section-->
-        <section class="section-padding wow fadeInUp delay-02s" id="portfolio">
+        <section class="section-padding wow fadeInUp delay-08s" id="portfolio">
             <div class="container">
                 <div class="row">
                     <div class="produce"> 
                         <h1>about us</h1>
                        <div class= "image-produce col-md-6">
-                            <img src="{% static 'img/trasua-bg2.jpg' %}" alt="lemon" width ="90%" height = "400px">
+                            <img src="{% static 'img/trasua-bg2.jpg' %}" alt="lemon" width ="100%" height = "400px">
                        </div>
-                       <div class = "text-produce col-md-4">
+                       <div class = "text-produce col-md-6">
                             <h4>
                                 A famous bubble tea brand in Taiwan, the country that gave birth to pearl milk tea back in 1980s, Chatime im/mediately attracted lots of fans when it was introduced to Vietnam. With over 70 choices, anyone can find a mixture they like.
                                 Chatime’s bubble tea flavours range from strongly aromatic bubble tea to refreshing fruit, from “oriental pop tea” to modern smoothies, or as exotic as QQ Jelly (a combination of traditional ‘pearls’ and coconut jelly). The most popular topping is, of course, its home-made pearl. Chatime’s bubble tea is generally sweet but you can ask the staff to customize the sweetness to your taste.
@@ -131,7 +130,7 @@
         <!---->
         <section>
             <div class = "container">
-                <div class = "row">
+                <div class = "row wow rotateIn delay-03s">
                     <div class ="info-produce col-md-4">
                         <img src="{% static 'img/giaohang.png' %}" width ="100px" height = "80px">
                         <div>
@@ -158,7 +157,7 @@
             </div>
         </section>
         <!---->
-        <section class="section-padding wow fadeInUp delay-05s" id="contact">
+        <section class="section-padding" id="contact">
             <div class="container">
                 <div class="row white">
                     <div class="col-md-8 col-sm-12">

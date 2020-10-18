@@ -1,0 +1,68 @@
+html {
+    scroll-padding-top: 85px; 
+    scroll-behavior: smooth;
+}
+.main-header
+{
+	background: url(../img/trasua-bg6.jpg) no-repeat;
+	background-size: 100% 100% ;
+	min-height: 320px;
+}
+.wrapper {
+    padding: 50px 0;
+}
+
+.menu li a{
+    text-decoration: none;
+    color:black;
+}
+.main-products-page .menu{
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+.main-products-page .menu-scroll{
+    position: fixed;
+    top:30px;
+}
+.main-products-page .menu h1 {
+    color :rgb(177, 66, 143);
+    
+}
+.main-products-page .menu li {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.main-products-page .menu-title{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    background-color: antiquewhite;
+    margin-top: 30px;
+}
+.main-products-page .menu-title {
+    color :rgb(177, 66, 143);
+}
+.main-products-page .menu-title h3{
+    color :rgb(126, 179, 196);
+}
+.list-product{
+    margin-top: 20px;
+}
+
+.test{
+    margin-top: 5000px;
+}
+.modal .modal-body{
+    display: flex;
+    flex-direction: row;
+}
+.modal .modal-body .info-modal {
+    margin-left: 20px;
+}
+.modal .more h4{
+    margin-left: 30px;
+}
+.modal .more input{
+    margin-left:40px;
+}

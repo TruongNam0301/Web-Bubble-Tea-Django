@@ -1,0 +1,97 @@
+.info-produce{
+    display: flex;
+    flex-direction: row;
+}
+.sale-off{
+    position: relative;
+    border-radius: 2px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 3px 0px  rgb(193, 224, 241);
+}
+.sale-off-image{
+    overflow: hidden;
+   
+}
+.sale-off-image img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 100%;
+    width: 100%;
+    max-height: 262px;
+    transition: all 0.3s
+}
+.sale-off-info{
+    text-align: center;
+    background: #fafafa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transform: translateY(60px);
+    font-size: large;
+    text-align: center;
+    transition: all 0.3s;
+
+}
+.price{
+    padding-top: 10px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+}
+.price-old{
+    padding-right: 10px;
+    text-decoration: line-through;
+    color: gray;
+}
+.price-new{
+    color:red
+}
+.sale-tags{
+    position: absolute;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-weight: 800;
+    color: black;
+    background-color: rgb(243, 63, 63);
+    text-align: center;
+    top:10px;
+    left:10px;
+    z-index: 1;
+}
+
+.sale-off:hover .sale-off-image img{
+    transform: scale(1.2)
+}
+
+.sale-off:hover .sale-off-info {
+    transform: translateY(0px);
+}
+
+.sale-off .sale-off-info .name-product{
+    text-transform: uppercase;
+}
+.sale-off:hover{
+    box-shadow: 0px 6px 6px 0px rgba(176,170,176,1);
+}
+.action button{
+    font-size: medium;
+    margin-top: 10px;
+    padding :5px;
+    text-transform: uppercase;
+    border: none;
+}
+.action .btn-buy{
+    padding: 6px 20px;
+    background-color: #8ad451;
+    color: white;
+}
+.action .btn-show{
+    background-color:white;
+    color:  #8ad451;
+    border: 1px solid #8ad451 ;
+}

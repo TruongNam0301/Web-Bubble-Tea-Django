@@ -15,5 +15,3 @@ def home(request):
     }
     return render(request, 'index.html',context)
 
-def feature(request):
-    return render(request, 'feature.html')

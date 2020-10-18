@@ -1,0 +1,122 @@
+{% extends 'common.html' %}
+
+    {% load static %}
+
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/products-page.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+    {% endblock %}
+
+    {% block title %}
+        <h2 class="top-title">Menu</h2>
+        <h3 class="title">Jibon</h3>
+        <h4 class="sub-title"></h4>
+    {% endblock %}
+    
+    {% block content %}
+        <section>
+            <div class = 'container'>
+                <div class ='row main-products-page'>
+                    <div class = 'col-md-3'>
+                        <ul class= 'menu'> <h1>Menu</h1>
+                            {% for type in queryset1 %}
+                                <li ><a href = '#type{{type.id}}'> {{type.nameType}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class = 'col-md-9'>
+                        {% for type ,arr_product in queryset2 %}
+                            <div id='type{{ type.id }}'>
+                                <div class = 'menu-title' >
+                                    <h3> {{type.nameType}}</h3>
+                                    <a href="#"><h3>xem tat ca</h3></a>
+                                </div>
+                                <div class = 'list-product'>
+                                    <div class = "row  wow fadeInUp delay-06s">
+                                        {% for product in arr_product %}
+                                            <div class ="col-md-4" >
+                                                <div class = "sale-off">
+                                                    <div class = "sale-off-image">
+                                                        <img src="{% static '/'%}{{product.image}}" height="262px" weight = '262px' >
+                                                    </div>
+                                                    {% if product.TypeSale.numSale > 0 %}
+                                                        <div class= 'sale-tags'>
+                                                            <span>-{{product.TypeSale.numSale}}%</span>
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class = "sale-off-info">
+                                                        <div class = "name-product">{{product.name}}</div>
+                                                        <div class = "price">
+                                                            {% if product.TypeSale.numSale > 0 %}
+                                                                <div class = "price-old">{{product.price}}đ</div>
+                                                            {% endif %}
+                                                            <div class = "price-new">{{product.newPrice}}đ</div>
+                                                        </div>
+                                                        <div class = "action">
+                                                            <button type="button" class="btn-buy" data-toggle="modal" data-target="#exampleModalCenter">ĐẶT NGAY</button>
+                                                            <button type="button" class="btn-show">XEM CHI TIET</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %} 
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    
+                    <div class="modal-body">
+                      <div class = 'image-modal'>
+                          <img  height="120px" width="120px">
+                      </div>
+                      <div class = 'info-modal'>
+                            <h3></h3>
+                            <h4></h4>
+                            <label>Quantity:</label>
+                            <input type="number" id="tentacles" value='1' name="tentacles" min="1" max="100">
+                      </div>
+                      
+                    </div>
+                    <div class = 'more'>
+                        <div class = 'size'> 
+                            
+                            
+                        </div>
+                        <div class = 'ice'>
+
+                        </div>
+                        <div class = 'sugar'>
+
+                        </div>
+                        <div class='topping'>
+                            <h4>Choose topping:</h4>
+                            <input type="checkbox" id="topping1" name="topping" value="chan chau">
+                            <label >chan chau</label><br>
+                            <input type="checkbox" id="topping2" name="topping" value="pudding">
+                            <label> pudding</label><br>
+                            <input type="checkbox" id="topping3" name="topping" value="thach">
+                            <label > thach rau cau</label><br>
+                        </div>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary save-modal">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <section>
+            <div class="test"></div>
+        </section>
+
+        <script src="{% static 'js/modal.js' %}"></script>
+    {% endblock %}

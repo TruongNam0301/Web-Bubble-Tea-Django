@@ -29,64 +29,7 @@ h1, h2, h3, h4, h5, h6
 	font-family: 'Lato', sans-serif;
 }
 /**safe-off**/
-.info-produce{
-    display: flex;
-    flex-direction: row;
-}
-.sale-off{
-    padding: 20px;
-    border:1px solid rgb(202, 196, 196);
-    border-radius: 5px;
-}
-.sale-off-image img{
-    width: 100%;
-    height: 100%;
-}
-.sale-off-info{
-    padding-top: 10px;
-    font-size: large;
-    text-align: center;
-}
-.price{
-    font-size: large;
-    display: flex;
-    justify-content: center;
-}
-.price div{
-    padding-right: 10px;
-}
-.price-old{
-    text-decoration: line-through;
-    color: gray;
-}
-.price-new{
-    color:red
-}
-.sale-num{
-    font-size: 14px;
-    width: 35px;
-    background-color: rgb(228, 86, 51);
-    border-top-right-radius: 40px 30px ;
-    border-bottom-right-radius: 40px 30px;
-    border-top-left-radius: 40px 30px ;
-    border-bottom-left-radius: 40px 30px;
-}
 
-.sale-off-action{
-    padding-top: 13px;
-    display: flex;
-    justify-content: center;
-}
-.sale-off-action .icon-action {
-    border: 1px solid rgb(190, 187, 187);
-    color: gray;
-    padding:10px;
-    border-radius: 5px;
-    margin:2px;
-}
-.sale-off-action .icon-action :hover{
-    color: black;
-}
 
 /**media Queries**/
 .navbar-default {
@@ -151,7 +94,7 @@ h1, h2, h3, h4, h5, h6
 }
 .top-title
 {
-	z-index: 5;
+	z-index: 15;
 	font-size: 27px;
 	font-weight: 700;
 	color: #fff;
@@ -162,7 +105,7 @@ h1, h2, h3, h4, h5, h6
 }
 .sub-title
 {
-	font-size: 50px;
+	font-size: 20px;
 	font-weight: 700;
 	color: #fff;
 	line-height: 71px;
@@ -172,7 +115,7 @@ h1, h2, h3, h4, h5, h6
 }
 .title
 {
-	font-size: 123px;
+	font-size: 90px;
 	font-weight: 700;
 	color: #fff;
 	line-height: 88px;
