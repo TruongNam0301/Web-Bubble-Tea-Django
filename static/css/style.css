@@ -154,6 +154,13 @@ h1, h2, h3, h4, h5, h6
 #cta-2{
     margin-top:40px ;
 }
+.total_quantity{
+    border-radius: 100%;
+    padding:0 4px;
+    background-color: red;
+    font-size: large;
+    color: #f8f8f8;
+}
 #cta-1
 {
 	padding: 40px 0px;

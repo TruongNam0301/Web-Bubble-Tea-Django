@@ -10,7 +10,7 @@ class Types(models.Model):
 
 class TypeSale(models.Model):
     nameTypeSale = models.CharField(max_length= 100)
-    numSale = models.IntegerField(default=0)
+    
     def __str__(self):
         return self.nameTypeSale
 
@@ -20,6 +20,7 @@ class Products(models.Model):
     image = models.FileField(upload_to="img/products_image",blank=True)
     Types = models.ForeignKey(Types , on_delete=models.CASCADE)
     TypeSale = models.ForeignKey(TypeSale , on_delete=models.CASCADE)
+    numSale = models.IntegerField(default=0)
     def __str__(self):
         return self.name
     

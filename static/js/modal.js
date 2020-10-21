@@ -10,11 +10,10 @@ $( document ).ready(function() {
      alertTopping();
 });
 
-
-
 $('.btn-buy').click(function(){
     var item = $(this).parent().parent().parent();
     $('input[type=checkbox]').prop('checked',false); 
+    $('input[name=quantity]').prop('value',1);
     setDataModal(item);
     makeInputRadio();
 })
@@ -23,9 +22,11 @@ function setDataModal(item){
     var image = item.find('img').attr('src');
     var name = item.find('.name-product').text();
     var price = item.find('.price-new').text();
+    var id = item.data('id');
     $('.modal-body').find('img').attr('src',image);
     $('.modal-body').find('h3').html(name);
     $('.modal-body').find('h4').html(price);
+    $('.modal-content').attr('data-id',id);
 }
 
 function makeInputRadio(){
@@ -39,13 +40,29 @@ function makeInputRadio(){
 }
 
 $('.save-modal').click(function(){
+    var id = $('.modal-content').attr('data-id');
     var size = $("input[name=size]:checked").val();
     var sugar = $("input[name=sugar]:checked").val();
-    var checkboxValues = [];
+    var quantity = $("input[name=quantity]").val()
+    var toppings = [];
     $('input[name=topping]:checked').map(function() {
-        checkboxValues.push($(this).val());
+        toppings.push($(this).val());
     });
-    console.log(checkboxValues);
+    console.log(quantity);
+    $.ajax({
+        type: "POST",
+        url:'/products/addCart',
+        data: {
+                'toppings[]':toppings,
+                'id':id,
+                'quantity':quantity,
+                'size':size,
+                'sugar':sugar,
+                },
+        success: function(response){
+            $('.total_quantity').html(response)
+        }
+    })
 })
 
 function alertTopping() {

@@ -35,26 +35,26 @@
                                     <div class = "row  wow fadeInUp delay-06s">
                                         {% for product in arr_product %}
                                             <div class ="col-md-4" >
-                                                <div class = "sale-off">
+                                                <div class = "sale-off" data-id={{product.id}}>
                                                     <div class = "sale-off-image">
-                                                        <img src="{% static '/'%}{{product.image}}" height="262px" weight = '262px' >
+                                                        <img src="{% static '/'%}{{product.image}}" height="262" width = '262' >
                                                     </div>
-                                                    {% if product.TypeSale.numSale > 0 %}
+                                                    {% if product.numSale > 0 %}
                                                         <div class= 'sale-tags'>
-                                                            <span>-{{product.TypeSale.numSale}}%</span>
+                                                            <span>-{{product.numSale}}%</span>
                                                         </div>
                                                     {% endif %}
                                                     <div class = "sale-off-info">
                                                         <div class = "name-product">{{product.name}}</div>
                                                         <div class = "price">
-                                                            {% if product.TypeSale.numSale > 0 %}
+                                                            {% if product.numSale > 0 %}
                                                                 <div class = "price-old">{{product.price}}đ</div>
                                                             {% endif %}
                                                             <div class = "price-new">{{product.newPrice}}đ</div>
                                                         </div>
                                                         <div class = "action">
                                                             <button type="button" class="btn-buy" data-toggle="modal" data-target="#exampleModalCenter">ĐẶT NGAY</button>
-                                                            <button type="button" class="btn-show">XEM CHI TIET</button>
+                                                            <a href="{% url 'products' %}{{product.id}}" ><button type="button" class="btn-show">XEM CHI TIET</button></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -69,7 +69,7 @@
             </div>
         </section>
         <section>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade"id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     
@@ -81,7 +81,7 @@
                             <h3></h3>
                             <h4></h4>
                             <label>Quantity:</label>
-                            <input type="number" id="tentacles" value='1' name="tentacles" min="1" max="100">
+                            <input type="number" id="quantity" value='1' name="quantity" min="1" max="100">
                       </div>
                       
                     </div>
@@ -98,7 +98,7 @@
                         </div>
                         <div class='topping'>
                             <h4>Choose topping:</h4>
-                            <input type="checkbox" id="topping1" name="topping" value="chan chau">
+                            <input type="checkbox" id="topping1" name="topping" value="chanchau">
                             <label >chan chau</label><br>
                             <input type="checkbox" id="topping2" name="topping" value="pudding">
                             <label> pudding</label><br>

@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # My app
     'home',
     'products'
@@ -45,7 +44,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
