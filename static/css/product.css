@@ -97,3 +97,16 @@
     color:  #8ad451;
     border: 1px solid #8ad451 ;
 }
+.modal .modal-body{
+    display: flex;
+    flex-direction: row;
+}
+.modal .modal-body .info-modal {
+    margin-left: 20px;
+}
+.modal .more h4{
+    margin-left: 30px;
+}
+.modal .more input{
+    margin-left:40px;
+}

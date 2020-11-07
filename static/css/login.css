@@ -1,0 +1,41 @@
+body{
+    background-color: antiquewhite;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.login-swapper{
+    margin: 30px 20px;
+    height:600px;
+    width: 500px;
+    background-color: aliceblue;
+
+}
+form{
+    margin: 10px 70px;
+}
+
+input[type='text'], input[type='password']{
+    border: none;
+    border-bottom:1px solid black ;
+    height:35px;
+    width:300px;
+    background-color: aliceblue;
+    margin-bottom: 20px;
+}
+input:focus{
+    outline: none;
+}
+.login-swapper .form-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.error{
+    color: red;
+}
+a{
+    color: blue
+}

@@ -1,0 +1,49 @@
+{% extends 'common.html' %}
+
+    {% load static %}
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    
+    {% endblock %}
+
+    {% block title %}
+        <h2 class="top-title">Tea & MilkTea</h2>
+        <h3 class="title">Login</h3>
+        <h4 class="sub-title"></h4>
+    {% endblock %}
+
+    {% block content %}
+        <h1>{{acc}}</h1>
+        <section>
+        <div class = 'container login'>
+            <div class='login-swapper'>
+                <h1>Login</h1>
+                <form id = 'login' action = '{{url}}/login/checkLogin' method ='POST'>{% csrf_token %}
+                    <label>Username</label><br/>
+                    <input type='text' name ='username' ><br/>
+                    <label>Password</label><br/>
+                    <input type='password' name = 'password'><br/>
+                    <div class ='form-actions'>
+                        <button type ='submit' class = 'btn btn-success'>Log In</button>
+                        <a href='{{url}}/login/signup'> Sign Up</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        </section>
+        <script>
+            $("#login").validate({
+                rules: {
+                    username: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                    }
+                }
+                });
+
+        </script>
+    {% endblock %}

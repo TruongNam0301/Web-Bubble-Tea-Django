@@ -1,0 +1,56 @@
+{% extends 'common.html' %}
+
+    {% load static %}
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    
+    {% endblock %}
+
+    {% block title %}
+        <h2 class="top-title">Tea & MilkTea</h2>
+        <h3 class="title">Login</h3>
+        <h4 class="sub-title"></h4>
+    {% endblock %}
+
+    {% block content %}
+        <h1>{{acc}}</h1>
+        <section>
+        <div class = 'container login'>
+            <div class='login-swapper'>
+                <h1>Login</h1>
+                <form id ='signup' action = '{{url}}/login/signup' method ='POST'>{% csrf_token %}
+                    <label>Name</label><br/>
+                    <input type='text' name ='name' ><br/>
+                    
+                    <label for="birthday">Your birthday:</label>
+                    <input type="date" name="birthday" value="2020-01-01"><br/>
+                    <label>Email</label><br/>
+                    <input type='text' name ='email' ><br/>
+                    <label>Password</label><br/>
+                    <input type='password' name = 'password'><br/>
+                    <div class ='form-actions'>
+                        <button type ='submit' class = 'btn btn-success'>Sign Up</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        </section>
+        <script>
+            $("#signup").validate({
+                rules: {
+                    // simple rule, converted to {required:true}
+                    name: "required",
+                    // compound rule
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                    }
+                }
+                });
+
+        </script>
+    {% endblock %}

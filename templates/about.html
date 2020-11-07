@@ -1,0 +1,75 @@
+{% extends "common.html" %}
+    {% load static %}
+    {% block css %}
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+    {% endblock %}
+
+    {% block title %}
+        <h2 class="top-title">Menu</h2>
+        <h3 class="title">Jibon</h3>
+        <h4 class="sub-title"></h4>
+    {% endblock %}
+    {% block content %}
+    <section id="sec-1">
+            <div class="container">
+                <div class="row-1">
+                    <div class="intro-1 text-left">
+                        <h1>INTRODUCTION</h1>
+                    </div>
+                </div>
+                <div class="intro-2">
+                    <div class="intro_content text-left">
+                        <span>Gong Cha was officially put into operation in Vietnam market by Golden Trust Co., Ltd., in  October 11st, 2014. Over five years of operation, Golden Trust Co., Ltd.- the Master of Franchise of Gong Cha in Vietnam, has made the brand grow expeditiously and become one of the most favorite F&B brands for young generation who loves milk tea and has the desire to experience qualified tea products from only selected ingredients.</span>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="intro_img col-md-4 text-center">
+                    <img src="{% static 'img/about_img/intro1.jpg' %}" width ="350px" height = "250px">
+                    </div>
+                    <div class="intro_img col-md-4 text-center">
+                    <img src="{% static 'img/about_img/intro2.jpg' %}" width ="350px" height = "250px">
+                    </div>
+                    <div class="intro_img col-md-4 text-center">
+                    <img src="{% static 'img/about_img/intro3.jpg' %}" width ="350px" height = "250px">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sec-2">
+            <div class="container">
+                <div class="row-3 text-center">
+                    <h2>OUR CORE VALUE</h2>
+                </div>
+                <div class="row-4">
+                    <div class="value_img col-md-4 text-center">
+                    <img src="{% static 'img/about_img/icon1.png' %}" width ="200px" height = "200px">
+                    <div class="core_value text-center">
+                        <h3>HIGH-QUALITY</h3>
+                    </div>
+                    <div class="value_content text-left">
+                    <span>Safe, hygienic and delicacy. The use of safe, natural and hygienic ingredients is Gong Cha’s top priority. The perfect taste of the drinks is the next important goal we want to address.</span>
+                    </div>
+                    </div>
+                    <div class="value_img col-md-4 text-center">
+                    <img src="{% static 'img/about_img/icon2.png' %}" width ="200px" height = "200px">
+                    <div class="core_value text-center">
+                        <h3>FRIENDLY & PROFESSIONAL SERVICES</h3>
+                    </div>
+                    <div class="value_content text-left">
+                    <span>Gong Cha always desires to satisfy customers with professional and friendly service as well as listening to customers’ contributions in order to improve the Gong Cha’s quality.</span>
+                    </div>
+                    </div>
+                    <div class="value_img col-md-4 text-center">
+                    <img src="{% static 'img/about_img/icon3.png' %}" width ="200px" height = "200px">
+                    <div class="core_value text-center">
+                        <h3>TRUSTED BRANDS</h3>
+                    </div>
+                    <div class="value_content text-left">
+                    <span>Based on two core foundations, Quality and Service, Gong Cha consistently strives to build and maintain a reliable brand image in the eyes of customers.</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}

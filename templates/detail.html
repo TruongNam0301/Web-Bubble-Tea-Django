@@ -67,14 +67,81 @@
         </div>
     </section>
     <section>
-        <div class= 'container'>
-            <div class= 'ads'>
-                <h1>some Products</h1>
-                <div >
-
-                </div>
+        <div class = "container">
+            <h1>Some of Product</h1>
+            <div class = "row wow fadeInUp delay-05s">
+                {% for product in queryset1 %}
+                    <div class ="col-md-3" >
+                        <div class = "sale-off" data-id={{product.id}}>
+                            <div class = "sale-off-image">
+                                <img src="{% static '/'%}{{product.image}}" >
+                            </div>
+                            <div class= 'sale-tags'>
+                                <span>-20%</span>
+                            </div>
+                            <div class = "sale-off-info">
+                                <div class = "name-product">{{product.name}}</div>
+                                <div class = "price">
+                                    <div class = "price-old">{{product.price}}đ</div>
+                                    <div class = "price-new">{{product.newPrice}}đ</div>
+                                </div>
+                                <div class = "action">
+                                    <button type="button" class="btn-buy" data-toggle="modal" data-target="#exampleModalCenter">ĐẶT NGAY</button>
+                                    <a href="{% url 'products' %}{{product.id}}" ><button type="button" class="btn-show">XEM CHI TIET</button></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
+    </section>
+    <section>
+        <div class="modal fade"id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                
+                <div class="modal-body">
+                  <div class = 'image-modal'>
+                      <img  height="120px" width="120px">
+                  </div>
+                  <div class = 'info-modal'>
+                        <h3></h3>
+                        <h4></h4>
+                        <label>Quantity:</label>
+                        <input type="number" id="quantity" value='1' name="quantity" min="1" max="100">
+                  </div>
+                  
+                </div>
+                <div class = 'more'>
+                    <div class = 'size'> 
+                        
+                        
+                    </div>
+                    <div class = 'ice'>
+
+                    </div>
+                    <div class = 'sugar'>
+
+                    </div>
+                    <div class='topping'>
+                        <h4>Choose topping:</h4>
+                        <input type="checkbox" id="topping1" name="topping" value="chanchau">
+                        <label >chan chau</label><br>
+                        <input type="checkbox" id="topping2" name="topping" value="pudding">
+                        <label> pudding</label><br>
+                        <input type="checkbox" id="topping3" name="topping" value="thach">
+                        <label > thach rau cau</label><br>
+                    </div>
+                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary save-modal">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </section>
     <script src="{% static 'js/detail.js' %}"></script>
     {% endblock %}
