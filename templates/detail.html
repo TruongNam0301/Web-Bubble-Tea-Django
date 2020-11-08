@@ -76,9 +76,11 @@
                             <div class = "sale-off-image">
                                 <img src="{% static '/'%}{{product.image}}" >
                             </div>
-                            <div class= 'sale-tags'>
-                                <span>-20%</span>
-                            </div>
+                            {% if product.numSale > 0 %}
+                                <div class= 'sale-tags'>
+                                    <span>-{{product.numSale}}%</span>
+                                </div>
+                            {% endif %}
                             <div class = "sale-off-info">
                                 <div class = "name-product">{{product.name}}</div>
                                 <div class = "price">

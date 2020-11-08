@@ -1,0 +1,18 @@
+.main-header
+{
+	background: url(../img/trasua-bg6.jpg) no-repeat;
+	background-size: 100% 100% ;
+	min-height: 320px;
+}
+.wrapper {
+    padding: 50px 0;
+}
+table{
+    margin-top: 20px;
+}
+.test{
+    margin-top: 280px;
+}
+.error{
+    color: red;
+}

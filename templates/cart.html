@@ -1,0 +1,110 @@
+{% extends 'common.html' %}
+
+    {% load static %}
+
+    {% block css %}
+     <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+        
+    {% endblock %}
+
+    {% block title %}
+        <h2 class="top-title">Menu</h2>
+        <h3 class="title">cart</h3>
+        <h4 class="sub-title"></h4>
+    {% endblock %}
+    
+    {% block content %}
+        <section>
+            <div class='container'>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Size</th>
+                        <th>Sugar</th>
+                        <th>Topping</th>
+                        <th>Price</th>
+                        <th>Button</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in products %}
+                            <tr>
+                                <td>
+                                    <img src="{% static '/'%}{{item.image}}" height="50" width = '50' >
+                                </td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>{{item.size}}</td>
+                                <td>{{item.sugar}}</td>
+                                <td>
+                                    {% for x in item.toppings %}
+                                        <p>{{x}}</p>
+                                    {% endfor %}
+                                </td>
+                                <td class='price-item'>{{item.price}}</td>
+                                <td><button class='btn btn-danger delete' data-stt={{item.stt}}>Delete</button></td>
+                            </tr>
+                        {% endfor %} 
+                    </tbody>
+                  </table>
+                  <div>
+                        <h3>Total:{{total}}vnd</h3>
+                        {% if request.session.cart.total_quantity is 0 %}
+                            <h4>Hãy chọn thức uống trong Mục Products</h4>
+                        {% else %}
+                            {% if 'user' in request.session %}
+                                <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Thanh Toán</button>
+                            {% else %}
+                                <a href="{% url 'login' %}"><button class="btn btn-success" >Thanh Toán</button></a>
+                            {% endif %}
+                        {% endif %}
+                        
+                  </div>
+            </div>
+        </section>
+        <section>
+            <div class="modal fade"id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <form id='order' action = 'order' method = "POST">{% csrf_token %}
+                        <div class="modal-body">
+                            <div class = 'info-modal'>
+                                <label> Vui lòng điền tên người nhận hàng:</label><br/>
+                                <input type = 'text' name='name' ><br/>
+                                <label> Vui lòng điền địa chỉ nhận hàng:</label><br/>
+                                <input type = 'text' name='address' ><br/>
+                                <label> Vui lòng điền Số điện thoại người nhận:</label><br/>
+                                <input type = 'number' name='phone' ><br/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary save-modal" value="Submit" >
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </section>
+        <script>
+            $("#order").validate({
+                rules: {
+                    name: {
+                        required: true,
+                        
+                    },
+                    address: {
+                        required: true,
+                    },
+                    phone:{
+                        required: true,
+                    }
+                }
+                });
+            </script>
+        <script src="{% static 'js/cart.js' %}"></script>
+
+    {% endblock %}

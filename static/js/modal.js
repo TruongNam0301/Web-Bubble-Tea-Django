@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    
     $(window).scroll(function(){
         if(window.pageYOffset>280){
             $('.menu').addClass('menu-scroll')
@@ -61,6 +62,7 @@ $('.save-modal').click(function(){
                 },
         success: function(response){
             $('.total_quantity').html(response)
+            
         }
     })
 })

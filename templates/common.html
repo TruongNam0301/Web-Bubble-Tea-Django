@@ -42,14 +42,21 @@
                                 </li>
                                 <li ><a href="{% url 'products' %}">Products</a></li>
                                 <li><a href="{% url 'about' %}">About us</a></li>
-                                <li><a href="Cart/">Cart <span class='total_quantity'>
+                                <li><a href="{% url 'cart' %}">Cart <span class='total_quantity'>
                                     {% if request.session.cart.total_quantity is None %}
                                         0
                                     {% else %}
                                         {{ request.session.cart.total_quantity }}
                                     {% endif %}
                                 </span></a></li>
-                                <li><a href="{% url 'login' %}">LOGIN</a></li>
+                                <li>
+                                    {% if 'user' in request.session %}
+                                        <a href="{% url 'logout' %}">LOGout</a>
+                                        
+                                    {% else %}
+                                        <a href="{% url 'login' %}">LOGIN</a>
+                                    {% endif %}
+                                </li>
                             </ul>
                         </div>
                     </div>

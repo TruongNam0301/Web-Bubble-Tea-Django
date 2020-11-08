@@ -43,7 +43,7 @@ def addCart(request):
         return HttpResponse(request.session['cart']['total_quantity'])
 
 def detail(request,id):
-    queryset1 = Products.objects.select_related('TypeSale').exclude(id = id).filter(TypeSale_id = 1)[0:4]
+    queryset1 = Products.objects.select_related('TypeSale').exclude(id = id).filter(TypeSale= 4)[0:4]
     product = Products.objects.get(id=id);
     product.newPrice = int((100-int(product.numSale))*product.price/100)
     context ={

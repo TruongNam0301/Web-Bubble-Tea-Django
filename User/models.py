@@ -5,6 +5,8 @@ class Customer(models.Model):
     name = models.CharField(max_length=100)
     birthday =models.DateField()
     email = models.CharField(max_length=25,null=True)
+    def __str__(self):
+        return str(self.name)
 
 class Account(models.Model):
     customer =  models.OneToOneField(
@@ -14,4 +16,6 @@ class Account(models.Model):
     )
     username = models.CharField(max_length= 25)
     password = models.CharField(max_length=25)
+    def __str__(self):
+        return str(self.customer)
    

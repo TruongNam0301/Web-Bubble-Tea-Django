@@ -16,6 +16,7 @@ def checkLogin(request):
     if(len(acc)==0):
         return redirect('login')
     else:
+        request.session['user']=acc[0]['customer_id']
         return redirect('/')
 
 def signup(request):
@@ -29,3 +30,7 @@ def signup(request):
         return redirect('login')
     else:
         return render(request,'signup.html')
+
+def logout(request):
+    del request.session['user']
+    return redirect('/')
