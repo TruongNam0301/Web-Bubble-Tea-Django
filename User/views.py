@@ -26,7 +26,8 @@ def signup(request):
         username = request.POST['email'];
         password = request.POST['password'];
         Customer.objects.create(name=name,birthday=birthday,email=username);
-        Account.objects.create(username=username,password=password);
+        id = Customer.objects.values('id').latest('id')
+        Account.objects.create(customer_id = id['id'],username=username,password=password);
         return redirect('login')
     else:
         return render(request,'signup.html')
